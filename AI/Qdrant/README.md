@@ -1,4 +1,4 @@
-***Qdrant*** is a vector search engine designed to handle large-scale AI applications, especially those that involve embeddings. It is primarily used to perform similarity searches, enabling efficient search and retrieval of data like images, text, or other unstructured data based on vector representations.
+***Qdrant*** is an [open source vector search engine|https://github.com/qdrant/qdrant] designed to handle large-scale AI applications, especially those that involve embeddings. It is primarily used to perform similarity searches, enabling efficient search and retrieval of data like images, text, or other unstructured data based on vector representations.
 
 
 **Here’s an overview of its key features:**
