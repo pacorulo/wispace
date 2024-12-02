@@ -1,4 +1,4 @@
-91. **How do I integrate Qdrant with my existing machine learning pipeline?**
+1. **How do I integrate Qdrant with my existing machine learning pipeline?**
     - **Issue:** Integrating Qdrant into an existing workflow can be tricky, especially if the user already has their machine learning models producing embeddings or using a specific framework.
     - **Solution:** Qdrant provides a Python SDK and REST API, so users can easily integrate it by sending embeddings (vectors) to Qdrant for storage and search. The embeddings can be generated using models like BERT, GPT, or custom models, and stored along with metadata. It's important to ensure the model's output is in the correct format (numeric vectors).
 > **Tip**: Make sure to fine-tune your embeddings to ensure efficient similarity search, and use Qdrant’s `update` or `insert` endpoints to add new data.
