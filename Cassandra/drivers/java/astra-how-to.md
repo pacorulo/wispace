@@ -1,4 +1,4 @@
-## We are going to detail the full process to connect to [Astra DB](https://astra.datastax.com/signup?utm_source=google&utm_medium=cpc&utm_campaign=ggl_s_emea_brand&utm_term=datastax%20astra&utm_content=brand-astra&gad_source=1&gclid=CjwKCAiA0rW6BhAcEiwAQH28IuGncWKUjENBEq5O_YOk2pMnWQQGoVv9feWAswdE46qmDPunQxD4XBoCzZYQAvD_BwE) by using Maven
+## Connect to [Astra DB](https://astra.datastax.com/signup?utm_source=google&utm_medium=cpc&utm_campaign=ggl_s_emea_brand&utm_term=datastax%20astra&utm_content=brand-astra&gad_source=1&gclid=CjwKCAiA0rW6BhAcEiwAQH28IuGncWKUjENBEq5O_YOk2pMnWQQGoVv9feWAswdE46qmDPunQxD4XBoCzZYQAvD_BwE) by using Maven
 
 1. Install java-jdk
   
