@@ -1,7 +1,6 @@
 ## Connect to [Astra DB](https://astra.datastax.com/signup?utm_source=google&utm_medium=cpc&utm_campaign=ggl_s_emea_brand&utm_term=datastax%20astra&utm_content=brand-astra&gad_source=1&gclid=CjwKCAiA0rW6BhAcEiwAQH28IuGncWKUjENBEq5O_YOk2pMnWQQGoVv9feWAswdE46qmDPunQxD4XBoCzZYQAvD_BwE) by using Maven
 
 1. Install java-jdk
-  
     ```
     sudo apt install openjdk-11-jre-headless
     ```
@@ -21,7 +20,7 @@
 
 4. Download SCB from Astra
 
-5. Generate a token
+5. Generate an Astra token
     ```
     {
       "clientId": "blablabla",
@@ -30,7 +29,6 @@
     }
     ```
 5. Create a `pom.xml` file at the top of your source java folder structure (it will be at the same level of the src folder that will be created on next step)
-
     ```
     <?xml version="1.0" encoding="UTF-8"?>
     <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -55,12 +53,11 @@
     Some more tags at groupID level (at the beginning and commented out above)
 
 6. Create java folder structure
-
     ```
     mkdir -p src/java/main
     ```
 
-7. Create the java file under previous folder 
+7. Create the java file (I named it `jdriver.java`) under previous folder 
     ```
     /*
      * Copyright DataStax, Inc.
@@ -77,7 +74,7 @@
      * See the License for the specific language governing permissions and
      * limitations under the License.
      */
-    //package com.datastax.astra;
+    package com.datastax.astra;
     
     import com.datastax.oss.driver.api.core.CqlSession;
     import com.datastax.oss.driver.api.core.cql.ResultSet;
@@ -120,68 +117,7 @@
     }
     ```
 
-8. Package it with maven (at the src level, together with the _pom.xml_ file) with the below command (it will clean any previous package, but also 'verify' and 'package' the project)
-
-    ```
-    mvn package 
-    ```
-
-    You will get an output like:
-
-    ```
-    [INFO] Building jar: /home/vagrant/java/target/jdriver-1.0-SNAPSHOT.jar
-    [INFO] ------------------------------------------------------------------------
-    [INFO] BUILD SUCCESS
-    
-    and a target folder with its content will be created at the same level where it was executed (at same src folder level), with below content (as example):
-    
-    vagrant@jdriver:~/java$ ll target/
-    total 28
-    drwxrwxr-x 6 vagrant vagrant 4096 Oct  1 14:09 ./
-    drwxrwxr-x 4 vagrant vagrant 4096 Oct  1 14:07 ../
-    drwxrwxr-x 2 vagrant vagrant 4096 Oct  1 14:09 classes/
-    drwxrwxr-x 3 vagrant vagrant 4096 Oct  1 14:09 generated-sources/
-    -rw-rw-r-- 1 vagrant vagrant 3348 Oct  1 14:09 jdriver-1.0-SNAPSHOT.jar
-    drwxrwxr-x 2 vagrant vagrant 4096 Oct  1 14:09 maven-archiver/
-    drwxrwxr-x 3 vagrant vagrant 4096 Oct  1 10:32 maven-status/
-    ```
-
-9. Execute the jar file:
-
-    ```
-    $ java -jar target/jdriver-1.0-SNAPSHOT.jar 
-    no main manifest attribute, in target/jdriver-1.0-SNAPSHOT.jar
-    ```
-
-    If you get above error, it is because the JAR file doesn’t know the entry point, so it has no idea where the main method is. Therefore, we can try with:
-
-    A) Below command will compile and execute the java code:
-
-    ```
-    mvn compile exec:java -Dexec.mainClass="com.datastax.astra.jdriver"
-    ```
-    **NOTE**: NOT WORKING but maybe useful in the future...
-    
-    I tried with:
-    
-    ```
-    $ mvn exec:exec -Dexec.executable="java" -Dexec.args="-classpath %classpath jdriver"
-    [INFO] Scanning for projects...
-    [INFO] 
-    [INFO] ------------------------< org.example:jdriver >-------------------------
-    [INFO] Building jdriver 1.0-SNAPSHOT
-    [INFO]   from pom.xml
-    [INFO] --------------------------------[ jar ]---------------------------------
-    [INFO] 
-    [INFO] --- exec:3.4.1:exec (default-cli) @ jdriver ---
-    SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
-    SLF4J: Defaulting to no-operation (NOP) logger implementation
-    SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-    #############################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################Cassandra version is: 4.0.0.6816
-    #############################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################[INFO] ------------------------------------------------------------------------
-    [INFO] BUILD SUCCESS
-    [INFO] ------------------------------------------------------------------------
-    [INFO] Total time:  25.288 s
-    [INFO] Finished at: 2024-10-01T14:21:26Z
-    [INFO] ------------------------------------------------------------------------
-    ```
+8. Almost done as we just have to execute mvn with the parameters/in the way:
+   ```
+   mvn compile exec:java -Dexec.mainClass="com.datastax.astra.jdriver"
+   ```
