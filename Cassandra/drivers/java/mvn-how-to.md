@@ -1,4 +1,4 @@
-#How to create and execute a jar file with maven
+# How to create and execute a jar file with maven
 
 1. Create the mvn folder/project structure:
 
