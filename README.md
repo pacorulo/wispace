@@ -39,7 +39,6 @@ Space for ScyllaDB.
 Commands, issues and general info related to Linux/Unix distributions.
 ### Vagrant <a name="Vagrant"></a>
 [Vagrant files](https://github.com/pacorulo/wispace/tree/main/Vagrant/vagrantFiles)
-=======
 
 1. [AI](AI)
    1. [C* 5.0](#C5)
