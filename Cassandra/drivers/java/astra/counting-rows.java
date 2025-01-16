@@ -25,7 +25,7 @@ public class jdriver {
       System.out.println("###########################################################");
       System.out.println("####         Table test.testing content                ####");
       System.out.println("###########################################################");
-      System.out.printf("Row %s%n is: %s%n",number, rs1.one().getFormattedContents());
+      System.out.printf("Row %s%n is: %s%n",row_number, rs1.one().getFormattedContents());
       Long totalRows = rs2.one().getLong(0);
 
       for (int i = 1; i < totalRows; i++) {
