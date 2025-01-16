@@ -19,8 +19,6 @@ Personal space/repo where I will try to share different docs about the technolog
 Cassandra 5.0 introduces vector search, which leverages storage-attached indexing and dense indexing techniques to transform data exploration and analysis. This update is especially impactful for domains like machine learning and artificial intelligence (AI).
 ### Qdrant <a name="Qdrant"></a>
 [Section](https://github.com/pacorulo/wispace/tree/main/AI/Qdrant) for Qdrant, which is an [open source vector search engine](https://github.com/qdrant/qdrant) designed to handle large-scale AI applications, especially those that involve embeddings. It is primarily used to perform similarity searches, enabling efficient search and retrieval of data like images, text, or other unstructured data based on vector representations.
-
-
   
 ## C* <a name="Cassandra"></a>
 ### Drivers <a name="Drivers"></a>
@@ -39,4 +37,3 @@ Space for ScyllaDB.
 Commands, issues and general info related to Linux/Unix distributions.
 ### Vagrant <a name="Vagrant"></a>
 [Vagrant files](https://github.com/pacorulo/wispace/tree/main/Vagrant/vagrantFiles)
-
