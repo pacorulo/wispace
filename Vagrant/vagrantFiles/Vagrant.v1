@@ -1,0 +1,35 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+#Required plugins
+required_plugins = %w( vagrant-hosts )
+required_plugins.each do |plugin|
+  system "vagrant plugin install #{plugin}" unless Vagrant.has_plugin? plugin
+end
+#Domain for the machines
+domain   = '.asterix.test'
+#Machines and HW values to generate
+nodes = [
+  { :hostname => 'asterix', :ram => 1024, :ip => '192.168.33.11', :box => 'ubuntu/trusty64' },
+  { :hostname => 'obelix', :ram => 1024, :ip => '192.168.33.12', :box => 'ubuntu/trusty64' },
+]
+#Current vagrantfile directory to store secondary disk
+vagrant_root = File.dirname(__FILE__)
+Vagrant.configure("2") do |config|
+  nodes.each do |node|
+    config.vm.define node[:hostname] do |nodeconfig|
+      nodeconfig.vm.box = node[:box]
+      nodeconfig.vm.hostname = node[:hostname] + domain
+      nodeconfig.vm.network :private_network, ip: node[:ip]
+      nodeconfig.vm.provision :hosts, :sync_hosts => true
+      memory = node[:ram] ? node[:ram] : 256;
+      nodeconfig.vm.synced_folder "/home/panoramix/sharedFolder", "/sharedFolder"
+      nodeconfig.vm.provider :virtualbox do |vb|
+        vb.customize [
+          "modifyvm", :id,
+          "--cpuexecutioncap", "50",
+          "--memory", memory.to_s,
+        ]
+      end
+    end
+  end
+end
