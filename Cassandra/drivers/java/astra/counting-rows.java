@@ -16,7 +16,7 @@ public class jdriver {
     try (CqlSession session = CqlSession.builder()
       //.withKeyspace(CqlIdentifier.fromCql("test"))
       .withCloudSecureConnectBundle(Paths.get("/home/pakete/vagrant/jdriver/secure-connect-java.zip"))
-      .withAuthCredentials("pSZZKKCXAylAdDQWqdtaWIpz","h+XIGQroxk-iz2wh+UkKOc-EfNKj0YeTQ4UBL++rE-1GNRAHaJYxxytpG1cBz3IcuntUcmc.640+brKZ12J4q3A9hzYJbbZiZxKyqu8UIZcRZWHDStA0Gc_fYs7A7Rnj")
+      .withAuthCredentials("${clientid}","${token}")
       .build()) {
       // We use execute to send a query to Cassandra. This returns a ResultSet, which
       // is essentially a collection of Row objects.
